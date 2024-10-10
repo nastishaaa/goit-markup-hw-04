@@ -37,17 +37,20 @@ img{
 
 .navigation-properties{
     position: relative;
+    color: #404bbf;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
 }
 
-.navigation-properties:hover::after{
-    display: flex;
+.navigation-properties::after{
     position: absolute;
     border-radius: 2px;
     content: "";
-    width: 48px;
-    height: 4px;
-    background: #404bbf;
-    margin-top: 21px;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+    background-color: #404bbf;
     
 }
 
@@ -117,6 +120,14 @@ ul{
     display: block;
 }
 
+.navigation-properties:hover::after{
+    content: "";
+    background: #404bbf;
+    border-radius: 2px;
+    width: 48px;
+    height: 4px;
+}
+
 .butt{
     cursor: pointer;
     font-weight: 500;
@@ -134,6 +145,7 @@ ul{
     border-radius: 4px;
     margin-right: auto;
     margin-left: auto;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav{
@@ -175,6 +187,8 @@ nav{
     display: flex;
     justify-content: center; 
     align-items: center; 
+    margin-bottom: 8px;
+
 }
 
 .svg-properties{
@@ -186,13 +200,15 @@ nav{
 .svg-properties:last-child{
     fill: #434455;
 }
+
 .change-color{
     letter-spacing: 0.02em;
     color: #434455;
     font-size: 16px;
     line-height: 1.5;
-
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);;
 }
+
 .change-color:hover, .change-color:active, .change-color:focus{
     color: #404bbf;
 }
@@ -202,27 +218,53 @@ nav{
     gap: 24px;
 }
 
-.svg-team{
+.svg-team-list{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     gap: 24px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .svg-team-properties{
-    margin-top: 8px;
     width: 40px;
     height: 40px;
 }
 
+.team-link{
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.svg-team-elem{
+    fill: #f4f4fd;
+
+}
+
+.team-link:hover{
+    background-color: #404bbf;
+}
+
+.team-link:focus{
+    background-color: #404bbf; 
+}
+
 .first-section{
-    background: 
+    background-image: 
     linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), 
-    url(/images/people-office\ 1.svg);
+    url(../images/people-office.jpg);
     text-align: center;
     padding: 188px 0;
     background-size: cover;
+    max-width: 1440px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .first-properties{
@@ -239,6 +281,7 @@ nav{
 
 .team-section{
     background-color: #F4F4FD;
+
 }
 
 .first-list-paragraph{
@@ -246,8 +289,8 @@ nav{
     line-height: 1.5;
     letter-spacing: 0.02em;
     color:  #434455;
-
 }
+
 .section-title{
     font-size: 36px;
     font-weight: 700;
@@ -270,9 +313,9 @@ nav{
     width: calc((100% - 72px) / 4); 
     box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
+
 .team-card{
     padding: 32px 0;
-
 }
 
 .title-portf{
@@ -287,11 +330,11 @@ nav{
     line-height: 1.2;
     letter-spacing: 0.02em;
     color: #2e2f42;
-    margin-bottom: 8px;
 }
 
 .p-portfolio{
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .list-paragraph{
@@ -321,28 +364,23 @@ nav{
 
 .container-list{
     width: calc((100% - 48px) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container-list:hover{
+    box-shadow: 
+    0px 1px 6px rgba(46, 47, 66, 0.08), 
+    0px 1px 1px rgba(46, 47, 66, 0.16), 
+    0px 2px 1px rgba(46, 47, 66, 0.08);
+    transform: translateY(0%);
 }
 
 .box{
-    position: relative;
-    width: 360px;
-    height: 300px;
-    overflow: hidden;
+    position: relative; 
+    overflow: hidden; 
 }
 
-.overlay{
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #4d5ae5;
-    transform: translateY(100%);
-    transition: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
-}
-
-.container-list:hover .overlay{
+.container-list:hover .dynamic-paragraph{
     transform: translateY(0);
 }
 
@@ -352,6 +390,16 @@ nav{
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #f4f4fd;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #4d5ae5;
+
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 40px 32px;
 }
 
 .footer-properties{
@@ -408,28 +456,52 @@ nav{
     flex-direction: column;
     align-items: flex-start;
 }
-.svg-footer-properties{
-    width: 40px;
-    height: 40px;
-}
 
 .media-paragraph{
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    color: #fff;
+    color: #FFFFFF;
     margin-bottom: 16px;
 }
 
 .footer-box{
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    align-items: baseline;
 }
 
-.logo-part{
-   margin-right: 120px;
+.svg-footer-list{
+    display: flex;
+    gap: 16px;
+}
+
+.svg-footer-properties{
+    width: 40px;
+    height: 40px;
+}
+
+.second-part-footer{
+    margin-left: 120px;
+}
+
+.footer-link{
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:  250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-link:hover{
+    background-color: #31d0aa; 
+}
+
+.footer-link:active{
+    background-color: #31d0aa;
 }
 
 .format{
