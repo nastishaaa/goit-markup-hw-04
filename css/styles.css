@@ -43,7 +43,7 @@ img{
 
 }
 
-/* .navigation-properties::after{
+.navigation-properties::after{
     position: absolute;
     border-radius: 2px;
     content: "";
@@ -52,7 +52,7 @@ img{
     background-color: #404bbf;
     height: 4px;
     width: 100%;
-} */
+}
 
 .menu{
     display: flex;
@@ -113,7 +113,7 @@ ul{
 .navigation-properties{
     font-weight: 500;
     position: relative;
-    color: #2e2f42;
+    color: #404bbf;
     letter-spacing: 0.02em;
     line-height: 1.5;
     font-size: 16px;
@@ -249,7 +249,8 @@ nav{
 
 .svg-team-elem{
     fill: #f4f4fd;
-
+    /* height: 100%;
+    width: 100%; */
 }
 
 .team-link:hover{
